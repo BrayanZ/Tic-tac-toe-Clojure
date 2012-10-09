@@ -34,8 +34,18 @@
 (deftest test_first_IA_move
   (testing "IA moves when empty board"
     (def board (create_board))
-    (def expected_board [["X" nil nil][nil nil  nil ][nil nil nil]])
-    (is (= (IA_move board "X") expected_board))
+    (def expected_board1 [["X" nil nil][nil nil  nil ][nil nil nil]])
+    (def expected_board2 [[nil  nil "X"][nil nil  nil ][nil nil nil]])
+    (def expected_board3 [[nil  nil nil][nil nil  nil ]["X" nil nil]])
+    (def expected_board4 [[nil nil nil][nil nil  nil ][nil nil "X"]])
+    (def new_board (IA_move board "X"))
+    (is (or
+          (= new_board expected_board1)
+          (= new_board expected_board2)
+          (= new_board expected_board3)
+          (= new_board expected_board4)
+        )
+    )
   )
 
   (testing "IA moves on corner  when X played on center cell"

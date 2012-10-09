@@ -1,4 +1,4 @@
-(ns tic-tac-toe.core-test
+(ns tic-tac-toe.misc_test
   (:use clojure.test
         tic-tac-toe.misc))
 
@@ -18,7 +18,7 @@
 (deftest test_get_columns 
   (testing "gets the columns of the board"
     (def board [["X" nil "O"]["O" nil "X"][nil "X" "O"]])
-    (def expected_board [["X" nil nil][ nil nil  "X"]["O" "X" "O"]])
+    (def expected_board [["X" "O" nil][ nil nil  "X"]["O" "X" "O"]])
     (is (= (get_columns board) expected_board))
   )
 )

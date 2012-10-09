@@ -2,15 +2,15 @@
   (:use clojure.test
         tic-tac-toe.core))
 
-(deftest test_check_cell 
+(deftest test_marked_cell 
   (testing "verify if a cell is marked"
     (def board [[nil nil nil ][nil nil "X" ][nil nil nil ]])
-    (is (= (check_cell board '(1 2)) true))
+    (is (= (marked_cell? board '(1 2)) true))
   )
 
   (testing "verify if a cell isn't marked"
     (def board [[nil nil nil ][nil nil "X" ][nil nil nil ]])
-    (is (= (check_cell board '(1 1)) false))
+    (is (= (marked_cell? board '(1 1)) false))
   )
 )
 
@@ -22,7 +22,7 @@
 
 (deftest test_mark_field 
   (testing "marks a field" 
-    (is (= (mark_field (create_board)  1 2 "x") [[nil nil nil] [nil nil "x"] [nil nil nil]]))
+    (is (= (mark_field (create_board)  '(1 2) "X") [[nil nil nil] [nil nil "X"] [nil nil nil]]))
   )
 )
 
@@ -77,3 +77,16 @@
   (testing "is empty the board"
     (is (= (empty_board? (create_board)) true))
 ))
+
+(deftest test_human_move
+  (testing "Human makes a valid move"
+    (def board [[nil nil nil] [nil nil "X"] [nil nil nil]])
+    (def expected_board [[nil nil "O"] [nil nil "X"] [nil nil nil]])
+    (is (= (human_move board '(0 2) "O") expected_board))
+  )
+
+  (testing "Human makes an invalid move"
+    (def board [[nil nil "O"] [nil nil "X"] [nil nil nil]])
+    (is (= (human_move board '(0 2) "X") false))
+  )
+)

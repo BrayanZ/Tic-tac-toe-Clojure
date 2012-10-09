@@ -4,11 +4,11 @@
   [[nil nil nil] [nil nil nil] [nil nil nil]]
 )
 
-(defn check_cell [board [row column] ]
+(defn marked_cell? [board [row column] ]
   (not (nil? (nth (flatten board) (+ row (* column (+ row 1))))))
 )
 
-(defn mark_field [board row column mark]
+(defn mark_field [board [row column] mark]
   (let [row_line (nth board row)]
     (assoc board row (assoc row_line column mark))
   )
@@ -54,3 +54,9 @@
   )
 )
 
+(defn human_move [board [row column :as position] mark]
+  (if (marked_cell? board position)
+    false
+    (mark_field board position mark)
+  )
+)

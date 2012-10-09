@@ -70,7 +70,7 @@
 )
 
 (defn get_second_move [board]
- (if (check_cell board center)
+ (if (marked_cell? board center)
    center
    (get_corner)
  )
@@ -149,9 +149,9 @@
 (defn random_move [board]
   (let [row (rand-int 3)
         column (rand-int 3)]
-    (if (check_cell board [row column])
-      [row column]
+    (if (marked_cell? board [row column])
       (recur board)
+      [row column]
     )
   )
 )
@@ -173,5 +173,5 @@
 
 (defn IA_move [board mark] 
   (let [position (get_best_move board mark)]
-    (mark_field board (first position) (second position) mark))
+    (mark_field board position mark))
 )

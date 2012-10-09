@@ -1,13 +1,11 @@
 # tic-tac-toe
 
-A Clojure library designed to ... well, that part is up to you.
+This is the famous game tic-tac-toe developed on Clojure
 
 ## Usage
 
-FIXME
-
 ## License
 
-Copyright © 2012 FIXME
+Copyright © 2012 
 
 Distributed under the Eclipse Public License, the same as Clojure.
