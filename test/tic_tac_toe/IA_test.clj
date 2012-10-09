@@ -75,6 +75,8 @@
   (testing "IA moves to random position"
     (def board [["O" nil nil]["X" nil nil][nil nil nil]])
     (is (not= board (IA_move board "X")))
+    (is (= (first (first board)) "O"))
+    (is (= (first (second board)) "X"))
   )
 )
 
