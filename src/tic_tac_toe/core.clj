@@ -1,11 +1,12 @@
-(ns tic-tac-toe.core)
+(ns tic-tac-toe.core
+  (:use tic-tac-toe.misc))
 
 (defn create_board []
   [[nil nil nil] [nil nil nil] [nil nil nil]]
 )
 
-(defn marked_cell? [board [row column] ]
-  (not (nil? (nth (flatten board) (+ row (* column (+ row 1))))))
+(defn marked_cell? [board position ]
+  (not (nil? (nth (flatten board) (get_flatten_position position))))
 )
 
 (defn mark_field [board [row column] mark]

@@ -71,8 +71,8 @@
 
 (defn get_second_move [board]
  (if (marked_cell? board center)
-   center
    (get_corner)
+   center
  )
 )
 
@@ -171,7 +171,7 @@
   )
 )
 
-(defn IA_move [board mark] 
+(defn IA_move [board mark]
   (let [position (get_best_move board mark)]
     (mark_field board position mark))
 )

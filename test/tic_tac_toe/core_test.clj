@@ -22,8 +22,11 @@
 
 (deftest test_mark_field 
   (testing "marks a field" 
-    (is (= (mark_field (create_board)  '(1 2) "X") [[nil nil nil] [nil nil "X"] [nil nil nil]]))
-  )
+           (is (= (mark_field (create_board)  '(1 2) "X") [[nil nil nil] [nil nil "X"] [nil nil nil]])))
+  (testing "mark the last cell"
+    (def board [["O" "X" "O"]["O" "X" "X" ][nil "O" "X"]])
+    (def expected_board [["O" "X" "O"]["O" "X" "X" ]["X" "O" "X"]])
+    (is (= expected_board (mark_field board '(2 0) "X"))))
 )
 
 
@@ -89,4 +92,8 @@
     (def board [[nil nil "O"] [nil nil "X"] [nil nil nil]])
     (is (= (human_move board '(0 2) "X") false))
   )
+  (testing "mark the last cell"
+    (def board [["O" "X" "O"]["O" "X" "X" ][nil "O" "X"]])
+    (def expected_board [["O" "X" "O"]["O" "X" "X" ]["X" "O" "X"]])
+    (is (= expected_board (human_move board '(2 0) "X"))))
 )

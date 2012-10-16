@@ -23,3 +23,18 @@
   )
 )
 
+(deftest 
+  test_get_flatten_position
+  (testing 
+    "gets the position for the flatten board"
+    (is (= 0 (get_flatten_position '(0 0))))
+    (is (= 1 (get_flatten_position '(0 1))))
+    (is (= 2 (get_flatten_position '(0 2))))
+    (is (= 3 (get_flatten_position '(1 0))))
+    (is (= 4 (get_flatten_position '(1 1))))
+    (is (= 5 (get_flatten_position '(1 2))))
+    (is (= 6 (get_flatten_position '(2 0))))
+    (is (= 7 (get_flatten_position '(2 1))))
+    (is (= 8 (get_flatten_position '(2 2))))
+    ))
+

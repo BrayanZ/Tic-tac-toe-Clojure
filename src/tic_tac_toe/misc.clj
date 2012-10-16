@@ -18,3 +18,6 @@
     (map last board)
   )
 )
+
+(defn get_flatten_position [[row column]]
+  (+ (* row 3) column))

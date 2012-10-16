@@ -35,8 +35,8 @@
   (testing "IA moves when empty board"
     (def board (create_board))
     (def expected_board1 [["X" nil nil][nil nil  nil ][nil nil nil]])
-    (def expected_board2 [[nil  nil "X"][nil nil  nil ][nil nil nil]])
-    (def expected_board3 [[nil  nil nil][nil nil  nil ]["X" nil nil]])
+    (def expected_board2 [[nil nil "X"][nil nil  nil ][nil nil nil]])
+    (def expected_board3 [[nil nil nil][nil nil  nil ]["X" nil nil]])
     (def expected_board4 [[nil nil nil][nil nil  nil ][nil nil "X"]])
     (def new_board (IA_move board "X"))
     (is (or
@@ -52,7 +52,7 @@
     (def board [[nil nil nil][nil "X" nil ][nil nil nil]])
     (def expected_board1 [["O" nil nil][nil "X" nil ][nil nil nil]])
     (def expected_board2 [[nil nil "O"][nil "X" nil ][nil nil nil]])
-    (def expected_board3 [[nil  nil nil][nil "X" nil ]["O" nil nil]])
+    (def expected_board3 [[nil nil nil][nil "X" nil ]["O" nil nil]])
     (def expected_board4 [[nil nil nil][nil "X" nil ][nil nil "O"]])
     (def new_board (IA_move board "O"))
     (is (or
